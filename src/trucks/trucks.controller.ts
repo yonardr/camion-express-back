@@ -5,8 +5,7 @@ import {TrucksService} from "./trucks.service";
 export class TrucksController {
     constructor(private trucksService:TrucksService){}
     @Get()
-    get(@Res({passthrough: true}) response: Response){
-        const res = response.status
-        return res;
+    get(){
+        return this.trucksService.getTrucks();
     }
 }
