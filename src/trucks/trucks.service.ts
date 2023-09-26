@@ -20,37 +20,38 @@ export class TrucksService {
             }
         };
 
-        function getCookie() {
+        async function getCookie() {
             return new Promise((resolve, reject) =>{
-                request(options, function (err, res, body) {
-                    if (err) reject(err);
-                    resolve(res.headers['set-cookie'])
+                request(options, async function (err, res, body) {
+                    if (err) await reject(err);
+                    if(res.headers) await resolve(await res.headers['set-cookie'][4])
                 })
             })
         }
-        console.log(await getCookie().then(res=>res))
-        // const res = await axios.post('http://web.proffit2000.ru/Track/Positions', {
-        //         id: '1174001',
-        //         type: '1',
-        //         idc: '971',
-        //         idgeo: '-1',
-        //         gtype: '-1',
-        //         idcars: "",
-        //         virtualTreeId: ""
-        // },
-        //     {
-        //         withCredentials: true,
-        //         headers: {
-        //             'Access-Control-Allow-Origin': '*',
-        //             'Content-Type': 'multipart/form-data',
-        //             'Cookie' : await getCookie().then(res=>res)
-        //         }
-        //     }
-        //     )
-        //     res.data.items.map(i => {
-        //             const obj = {Name: i.alias, Lat: i.Lat, Lng: i.Lng, Angle: i.angle}
-        //             items.push(obj)
-        //         })
+
+        const res = await axios.post('http://web.proffit2000.ru/Track/Positions', {
+                id: '1174001',
+                type: '1',
+                idc: '971',
+                idgeo: '-1',
+                gtype: '-1',
+                idcars: "",
+                virtualTreeId: ""
+        },
+            {
+                withCredentials: true,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'multipart/form-data',
+                    'Cookie' :  `${await getCookie().then(res=>res)}`,
+                }
+            }
+            )
+
+            res.data.items.map(i => {
+                    const obj = {Name: i.alias, Lat: i.Lat, Lng: i.Lng, Angle: i.angle}
+                    items.push(obj)
+                })
         return items
     }
 }
