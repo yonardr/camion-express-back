@@ -4,6 +4,7 @@ import {ConfigModule} from "@nestjs/config";
 import { TrucksModule } from './trucks/trucks.module';
 import { UsersModule } from './users/users.module';
 import {User} from './users/users.model';
+import { EmailerModule } from './emailer/emailer.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -19,7 +20,7 @@ import {User} from './users/users.model';
       models: [User],
       autoLoadModels:true
     }),
-      TrucksModule, UsersModule],
+      TrucksModule, UsersModule, EmailerModule],
   controllers: [],
   providers: [],
 })
