@@ -1,18 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
+import {GetDataMailDto} from "./dto/get-data-mail.dto";
 
 @Injectable()
 export class EmailerService {
     constructor(private readonly mailerService: MailerService) {}
-    async example() {
-        await this.mailerService
+    async send(dto: GetDataMailDto, file: any) {
+        console.log(file)
+        const res = await this.mailerService
             .sendMail({
                 to: 'rustem2129@mail.ru', // list of receivers
-                from: 'noreply@nestjs.com', // sender address
-                subject: 'Testing Nest MailerModule ✔', // Subject line
-                text: 'welcome', // plaintext body
-                html: '<b>welcome</b>', // HTML body content
+                from: 'info@kamion-express.tmweb.ru', // sender address
+                subject: 'Заявка', // Subject line
+                template: 'application-approved',
+                html: `<h1>${dto.name} оставил заявку </h1><h1>Номер телефона: ${dto.tel}</h1><h1>Почта этого пользователя: ${dto.email}</h1>`, // HTML body content
+                attachments: [{
+                    filename: file.originalname,
+                    content: file.buffer.toString('base64'),
+                    encoding: 'base64',
+                    contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                }]
             })
-        return 1
+        return res
     }
 }

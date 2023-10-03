@@ -10,9 +10,16 @@ import { EmailerService } from './emailer.service';
   imports: [
     MailerModule.forRootAsync({
       useFactory: () => ({
-        transport: 'smtps://user@domain.com:pass@smtp.domain.com',
+        transport: {
+          host: 'smtp.timeweb.ru',
+          port: 25,
+          auth: {
+            user: 'info@kamion-express.tmweb.ru',
+            pass: 'IGIP5fOEy8XumaaOifO3'
+          }
+        },
         defaults: {
-          from: '"nest-modules" <modules@nestjs.com>',
+          from: '"No Reply" <info@kamion-express.tmweb.ru>',
         },
         template: {
           dir: __dirname + '/templates',
@@ -21,6 +28,7 @@ import { EmailerService } from './emailer.service';
             strict: true,
           },
         },
+
       }),
     }),
   ],
