@@ -6,9 +6,15 @@ import {FileInterceptor} from "@nestjs/platform-express";
 @Controller('emailer')
 export class EmailerController {
     constructor(private emailerService: EmailerService) {}
+
     @Post()
-    @UseInterceptors(FileInterceptor('file'))
-    get(@Body() dto: GetDataMailDto, @UploadedFile() file){
-        return this.emailerService.send(dto, file);
+    post(@Body() dto : GetDataMailDto){
+        return this.emailerService.send(dto);
     }
+    @Post('/file')
+    @UseInterceptors(FileInterceptor('file'))
+    postFile(@Body() dto: GetDataMailDto, @UploadedFile() file){
+        return this.emailerService.sendWithfile(dto, file);
+    }
+
 }

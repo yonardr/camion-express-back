@@ -5,7 +5,7 @@ import {GetDataMailDto} from "./dto/get-data-mail.dto";
 @Injectable()
 export class EmailerService {
     constructor(private readonly mailerService: MailerService) {}
-    async send(dto: GetDataMailDto, file: any) {
+    async sendWithfile(dto: GetDataMailDto, file: any) {
         console.log(file)
         const res = await this.mailerService
             .sendMail({
@@ -20,6 +20,17 @@ export class EmailerService {
                     encoding: 'base64',
                     contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                 }]
+            })
+        return res
+    }
+    async send(dto: GetDataMailDto) {
+        const res = await this.mailerService
+            .sendMail({
+                to: 'rustem2129@mail.ru', // list of receivers
+                from: 'info@kamion-express.tmweb.ru', // sender address
+                subject: 'Заявка', // Subject line
+                template: 'application-approved',
+                html: `<h1>${dto.name} оставил заявку </h1><h1>Номер телефона: ${dto.tel}</h1><h1>Почта этого пользователя: ${dto.email}</h1>`, // HTML body content
             })
         return res
     }
