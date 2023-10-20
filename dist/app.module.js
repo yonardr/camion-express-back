@@ -18,7 +18,12 @@ const documents_module_1 = require("./documents/documents.module");
 const documents_model_1 = require("./documents/documents.model");
 const types_documents_model_1 = require("./documents/types-documents.model");
 const serve_static_1 = require("@nestjs/serve-static");
+const roles_controller_1 = require("./roles/roles.controller");
+const roles_module_1 = require("./roles/roles.module");
 const path = require("path");
+const roles_model_1 = require("./roles/roles.model");
+const user_roles_model_1 = require("./roles/user-roles.model");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -37,12 +42,12 @@ AppModule = __decorate([
                 username: process.env.POSTGRES_USER,
                 password: process.env.POSTGRES_PASSWORD,
                 database: process.env.POSTGRES_DB,
-                models: [users_model_1.User, documents_model_1.Documents, types_documents_model_1.TypesDocuments],
+                models: [users_model_1.User, documents_model_1.Documents, types_documents_model_1.TypesDocuments, roles_model_1.Role, user_roles_model_1.UserRoles],
                 autoLoadModels: true
             }),
-            trucks_module_1.TrucksModule, users_module_1.UsersModule, emailer_module_1.EmailerModule, documents_module_1.DocumentsModule
+            trucks_module_1.TrucksModule, users_module_1.UsersModule, emailer_module_1.EmailerModule, documents_module_1.DocumentsModule, roles_module_1.RolesModule, auth_module_1.AuthModule
         ],
-        controllers: [],
+        controllers: [roles_controller_1.RolesController],
         providers: [],
     })
 ], AppModule);

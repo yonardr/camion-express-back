@@ -12,6 +12,10 @@ const users_service_1 = require("./users.service");
 const users_controller_1 = require("./users.controller");
 const sequelize_1 = require("@nestjs/sequelize");
 const users_model_1 = require("./users.model");
+const user_roles_model_1 = require("../roles/user-roles.model");
+const roles_model_1 = require("../roles/roles.model");
+const roles_module_1 = require("../roles/roles.module");
+const auth_module_1 = require("../auth/auth.module");
 let UsersModule = class UsersModule {
 };
 UsersModule = __decorate([
@@ -19,7 +23,12 @@ UsersModule = __decorate([
         providers: [users_service_1.UsersService],
         controllers: [users_controller_1.UsersController],
         imports: [
-            sequelize_1.SequelizeModule.forFeature([users_model_1.User])
+            sequelize_1.SequelizeModule.forFeature([users_model_1.User, roles_model_1.Role, user_roles_model_1.UserRoles]),
+            roles_module_1.RolesModule,
+            (0, common_1.forwardRef)(() => auth_module_1.AuthModule)
+        ],
+        exports: [
+            users_service_1.UsersService,
         ]
     })
 ], UsersModule);

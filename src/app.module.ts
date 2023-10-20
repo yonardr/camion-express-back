@@ -9,7 +9,12 @@ import { DocumentsModule } from './documents/documents.module';
 import {Documents} from "./documents/documents.model";
 import {TypesDocuments} from "./documents/types-documents.model";
 import {ServeStaticModule} from "@nestjs/serve-static";
+import { RolesController } from './roles/roles.controller';
+import { RolesModule } from './roles/roles.module';
 import * as path from "path";
+import {Role} from "./roles/roles.model";
+import {UserRoles} from "./roles/user-roles.model";
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,11 +30,11 @@ import * as path from "path";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Documents, TypesDocuments],
+      models: [User, Documents, TypesDocuments, Role, UserRoles],
       autoLoadModels:true
     }),
-      TrucksModule, UsersModule, EmailerModule, DocumentsModule],
-  controllers: [],
+      TrucksModule, UsersModule, EmailerModule, DocumentsModule, RolesModule, AuthModule],
+  controllers: [RolesController],
   providers: [],
 })
 export class AppModule {}
