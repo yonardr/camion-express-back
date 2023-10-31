@@ -38,9 +38,9 @@ let DocumentsService = class DocumentsService {
     }
     async addDocuments(dto, file) {
         let fileName = '';
+        console.log(file);
         if (dto.keep_name) {
             const findName = await this.documentsRepository.count({ where: { path: file.originalname } });
-            console.log(findName);
             if (findName < 1) {
                 fileName = file.originalname;
                 await this.fileService.addFile(file, true);
