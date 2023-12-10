@@ -24,6 +24,7 @@ const path = require("path");
 const roles_model_1 = require("./roles/roles.model");
 const user_roles_model_1 = require("./roles/user-roles.model");
 const auth_module_1 = require("./auth/auth.module");
+const news_module_1 = require("./news/news.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -45,7 +46,7 @@ AppModule = __decorate([
                 models: [users_model_1.User, documents_model_1.Documents, types_documents_model_1.TypesDocuments, roles_model_1.Role, user_roles_model_1.UserRoles],
                 autoLoadModels: true
             }),
-            trucks_module_1.TrucksModule, users_module_1.UsersModule, emailer_module_1.EmailerModule, documents_module_1.DocumentsModule, roles_module_1.RolesModule, auth_module_1.AuthModule
+            trucks_module_1.TrucksModule, users_module_1.UsersModule, emailer_module_1.EmailerModule, documents_module_1.DocumentsModule, roles_module_1.RolesModule, auth_module_1.AuthModule, news_module_1.NewsModule
         ],
         controllers: [roles_controller_1.RolesController],
         providers: [],

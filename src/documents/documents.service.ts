@@ -30,13 +30,13 @@ export class DocumentsService {
             //console.log(findName)
             if(findName < 1) {
                 fileName = file.originalname
-                await this.fileService.addFile(file, true)
+                await this.fileService.addFile(file, true, 'documents')
             }
             else {
                 throw new HttpException('Такой файл уже существует', HttpStatus.FORBIDDEN);
             }
         }
-        else fileName = await this.fileService.addFile(file, false)
+        else fileName = await this.fileService.addFile(file, false, 'documents')
         const data = {
             name: dto.name,
             type_id: dto.type_id,
@@ -57,6 +57,6 @@ export class DocumentsService {
                 return this.documentsRepository.destroy({where:{id: id}})
                     .then(u=> {return result})
             })
-        return await this.fileService.deleteFile(res.path)
+        return await this.fileService.deleteFile(res.path, 'documents')
     }
 }

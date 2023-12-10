@@ -12,6 +12,9 @@ import {TypesDocuments} from "./types-documents.model";
   providers: [DocumentsService, FileService],
   imports:[
     SequelizeModule.forFeature([Documents, TypesDocuments])
+  ],
+  exports:[
+      FileService
   ]
 })
 export class DocumentsModule {}

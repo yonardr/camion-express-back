@@ -22,6 +22,9 @@ DocumentsModule = __decorate([
         providers: [documents_service_1.DocumentsService, file_servise_1.FileService],
         imports: [
             sequelize_1.SequelizeModule.forFeature([documents_model_1.Documents, types_documents_model_1.TypesDocuments])
+        ],
+        exports: [
+            file_servise_1.FileService
         ]
     })
 ], DocumentsModule);

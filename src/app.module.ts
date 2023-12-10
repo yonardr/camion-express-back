@@ -15,6 +15,7 @@ import * as path from "path";
 import {Role} from "./roles/roles.model";
 import {UserRoles} from "./roles/user-roles.model";
 import { AuthModule } from './auth/auth.module';
+import { NewsModule } from './news/news.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -33,7 +34,7 @@ import { AuthModule } from './auth/auth.module';
       models: [User, Documents, TypesDocuments, Role, UserRoles],
       autoLoadModels:true
     }),
-      TrucksModule, UsersModule, EmailerModule, DocumentsModule, RolesModule, AuthModule],
+      TrucksModule, UsersModule, EmailerModule, DocumentsModule, RolesModule, AuthModule, NewsModule],
   controllers: [RolesController],
   providers: [],
 })

@@ -43,14 +43,14 @@ let DocumentsService = class DocumentsService {
             const findName = await this.documentsRepository.count({ where: { path: file.originalname } });
             if (findName < 1) {
                 fileName = file.originalname;
-                await this.fileService.addFile(file, true);
+                await this.fileService.addFile(file, true, 'documents');
             }
             else {
                 throw new common_1.HttpException('Такой файл уже существует', common_1.HttpStatus.FORBIDDEN);
             }
         }
         else
-            fileName = await this.fileService.addFile(file, false);
+            fileName = await this.fileService.addFile(file, false, 'documents');
         const data = {
             name: dto.name,
             type_id: dto.type_id,
@@ -69,7 +69,7 @@ let DocumentsService = class DocumentsService {
             return this.documentsRepository.destroy({ where: { id: id } })
                 .then(u => { return result; });
         });
-        return await this.fileService.deleteFile(res.path);
+        return await this.fileService.deleteFile(res.path, 'documents');
     }
 };
 DocumentsService = __decorate([
