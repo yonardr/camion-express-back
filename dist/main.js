@@ -5,7 +5,7 @@ const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 const path_1 = require("path");
 async function bootstrap() {
-    const PORT = process.env.PORT || 5000;
+    const PORT = process.env.PORT || 3000;
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const cors = require("cors");
     const corsOptions = {

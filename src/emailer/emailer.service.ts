@@ -15,7 +15,7 @@ export class EmailerService {
                 template: 'application-approved',
                 html: `<h1>${dto.name} оставил заявку </h1><h1>Номер телефона: ${dto.tel}</h1><h1>Почта этого пользователя: ${dto.email}</h1>`, // HTML body content
                 attachments: [{
-                    filename: file.originalname,
+                    filename: dto.file_name,
                     content: file.buffer.toString('base64'),
                     encoding: 'base64',
                     contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
