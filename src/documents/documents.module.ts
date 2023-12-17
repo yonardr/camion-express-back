@@ -6,15 +6,17 @@ import {SequelizeModule} from "@nestjs/sequelize";
 import {User} from "../users/users.model";
 import {Documents} from "./documents.model";
 import {TypesDocuments} from "./types-documents.model";
+import {DocsNews} from "../news/models/docs-news.model";
+import {News} from "../news/news.model";
 
 @Module({
   controllers: [DocumentsController],
   providers: [DocumentsService, FileService],
   imports:[
-    SequelizeModule.forFeature([Documents, TypesDocuments])
+    SequelizeModule.forFeature([Documents, TypesDocuments, DocsNews, News])
   ],
   exports:[
-      FileService
+      DocumentsService
   ]
 })
 export class DocumentsModule {}

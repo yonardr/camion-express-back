@@ -1,6 +1,8 @@
-import {Table, Model, Column, DataType, ForeignKey} from 'sequelize-typescript'
+import {Table, Model, Column, DataType, ForeignKey, BelongsToMany} from 'sequelize-typescript'
 import {ApiProperty} from '@nestjs/swagger'
 import {TypesDocuments} from "./types-documents.model";
+import {News} from "../news/news.model";
+import {DocsNews} from "../news/models/docs-news.model";
 
 interface CreateDocuments{
     name: string,
@@ -25,4 +27,5 @@ export class Documents extends Model<Documents, CreateDocuments>{
     @ForeignKey(()=>TypesDocuments)
     @Column({type: DataType.INTEGER})
     type_id: number
+
 }

@@ -16,6 +16,12 @@ import {Role} from "./roles/roles.model";
 import {UserRoles} from "./roles/user-roles.model";
 import { AuthModule } from './auth/auth.module';
 import { NewsModule } from './news/news.module';
+import {News} from "./news/news.model";
+import {DocsNews} from "./news/models/docs-news.model";
+import {DocumentsService} from "./documents/documents.service";
+import {NewsAddress} from "./news/models/address-news.model";
+import {NewsContacts} from "./news/models/contacts-news.model";
+import {ImagesNews} from "./news/models/images-news.model";
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,11 +37,11 @@ import { NewsModule } from './news/news.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Documents, TypesDocuments, Role, UserRoles],
+      models: [User, Documents, TypesDocuments, Role, UserRoles, News, DocsNews, NewsAddress, NewsContacts, ImagesNews],
       autoLoadModels:true
     }),
       TrucksModule, UsersModule, EmailerModule, DocumentsModule, RolesModule, AuthModule, NewsModule],
-  controllers: [RolesController],
+  controllers: [],
   providers: [],
 })
 export class AppModule {}
