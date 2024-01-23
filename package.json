@@ -42,7 +42,8 @@
     "sequelize": "^6.31.0",
     "sequelize-typescript": "^2.1.5",
     "swagger-ui-express": "^4.6.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/xlsx-0.20.1.tgz"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

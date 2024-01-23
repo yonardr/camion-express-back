@@ -1,9 +1,10 @@
 import {Body, Controller, Delete, Get, Param, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
 import {DocumentsService} from "./documents.service";
-import {ApiOperation} from "@nestjs/swagger";
+import {ApiOperation, ApiTags} from "@nestjs/swagger";
 import {AddDocumentDto} from "./dto/add-document.dto";
 import {FileInterceptor} from "@nestjs/platform-express";
 
+@ApiTags('Документы')
 @Controller('documents')
 export class DocumentsController {
     constructor(private documentService : DocumentsService) {}

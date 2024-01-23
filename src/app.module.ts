@@ -22,6 +22,12 @@ import {DocumentsService} from "./documents/documents.service";
 import {NewsAddress} from "./news/models/address-news.model";
 import {NewsContacts} from "./news/models/contacts-news.model";
 import {ImagesNews} from "./news/models/images-news.model";
+import { CalculatorModule } from './calculator/calculator.module';
+import {Direction, Point_A, Point_B, Volume, Weight} from "./calculator/calculator.model";
+import {PointA_direction} from "./calculator/models/pointA_direction.model";
+import {PointB_direction} from "./calculator/models/pointB_direction.model";
+import {Volume_direction} from "./calculator/models/volume_direction.model";
+import {Weight_direction} from "./calculator/models/weight_direction.model";
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -37,10 +43,11 @@ import {ImagesNews} from "./news/models/images-news.model";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Documents, TypesDocuments, Role, UserRoles, News, DocsNews, NewsAddress, NewsContacts, ImagesNews],
+      models: [User, Documents, TypesDocuments, Role, UserRoles, News, DocsNews, NewsAddress, NewsContacts, ImagesNews,
+        Direction, Point_A, Point_B, Weight, Volume, PointA_direction, PointB_direction, Volume_direction, Weight_direction],
       autoLoadModels:true
     }),
-      TrucksModule, UsersModule, EmailerModule, DocumentsModule, RolesModule, AuthModule, NewsModule],
+      TrucksModule, UsersModule, EmailerModule, DocumentsModule, RolesModule, AuthModule, NewsModule, CalculatorModule],
   controllers: [],
   providers: [],
 })

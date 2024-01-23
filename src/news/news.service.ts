@@ -59,8 +59,13 @@ export class NewsService {
     }
 
     async getAll(){
-        const news =  this.newsRepository.findAll({
+        const news = await this.newsRepository.findAll({
             include: {all: true}})
+        return news
+    }
+
+    async delNews(id: number){
+        const news = await this.newsRepository.destroy({where: {id: id}})
         return news
     }
 

@@ -1,9 +1,11 @@
-import {Body, Controller, Get, Param, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {CreateNewsDto} from "./dto/create-news.dto";
 import {NewsService} from "./news.service";
 import {FilesInterceptor, MulterModule} from "@nestjs/platform-express";
 import {AddDocsNewsDto} from "./dto/addDocs-news.dto";
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('Новости')
 @Controller('news')
 export class NewsController {
     constructor(private newsService : NewsService) {}
@@ -31,5 +33,10 @@ export class NewsController {
             @Body() name: AddDocsNewsDto,
            @UploadedFiles() docs: Array<MulterModule>){
         return this.newsService.addDocs(id, name.name, docs)
+    }
+
+    @Delete('/:id')
+    delNews(@Param('id') id: number){
+        return this.newsService.delNews(id)
     }
 }
