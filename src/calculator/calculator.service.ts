@@ -31,7 +31,7 @@ export class CalculatorService {
         return result;
     }
     async getDirectionById(id: number){
-        const res = await this.directionRepository.findOne({where:{id: id}})
+        const res = await this.directionRepository.findOne({where:{id: id}, include: {all:true}})
         return res;
     }
 
