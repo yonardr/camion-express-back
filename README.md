@@ -1,6 +1,4 @@
-![Логотип_с_обсводкой__основной__англ-_1_](https://github.com/yonardr/camion-express-back/assets/78346001/154a5f00-843b-413a-a749-e334381c98ff)<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+![Логотип_с_обсводкой__основной__англ-_1_](https://github.com/yonardr/camion-express-back/assets/78346001/154a5f00-843b-413a-a749-e334381c98ff)
 ![Uploading Логотип_с_обсводкой__основной__ан<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -9,8 +7,8 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    viewBox="0 0 1122.52 793.70135"
-   height="793.70135"
-   width="1122.52"
+   height="393.70135"
+   width="522.52"
    xml:space="preserve"
    id="svg2"
    version="1.1"><metadata
