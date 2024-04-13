@@ -5,14 +5,15 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-# Сервер сайта компании КамионЭксперсс
+# <h1 align="center">Сервер сайта компании КамионЭксперсс</h1>
 
-## Работоспособность можно проверить на тестовом сервере
-http://94.198.217.94/
-
+<p align="center">Работоспособность можно проверить на тестовом сервере
+http://94.198.217.94/</p>
+<br>
 # ERD диаграммы
 ## Калькулятор для расчета стоимости грузоперевозки
-![image](https://github.com/yonardr/camion-express-back/assets/78346001/1d82baa2-39fd-41c9-bf21-a64ebe46ede3)
+![image](https://github.com/yonardr/camion-express-back/assets/78346001/4741fe32-616a-4547-ac72-c221ed389ea0)
+
 
 ## Актуальные новости и спецпредложения компании
 ![image](https://github.com/yonardr/camion-express-back/assets/78346001/a2e118eb-9cee-4e89-85fa-7a42b7733e35)
