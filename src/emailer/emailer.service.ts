@@ -9,7 +9,7 @@ export class EmailerService {
         console.log(file)
         const res = await this.mailerService
             .sendMail({
-                to:  ['astron0408@gmail.com', 'rustem2129@mail.ru'], // list of receivers
+                to:  ['astron0408@gmail.com', 'astron71@mail.ru'], // list of receivers
                 from: 'info@kamion-express.tmweb.ru', // sender address
                 subject: 'Заявка', // Subject line
                 template: 'application-approved',
@@ -26,7 +26,7 @@ export class EmailerService {
     async send(dto: GetDataMailDto) {
         const res = await this.mailerService
             .sendMail({
-                to:  ['astron0408@gmail.com', 'rustem2129@mail.ru'], // list of receivers
+                to:  ['astron0408@gmail.com', 'astron71@mail.ru'], // list of receivers
                 from: 'info@kamion-express.tmweb.ru', // sender address
                 subject: 'Заявка', // Subject line
                 template: 'application-approved',
