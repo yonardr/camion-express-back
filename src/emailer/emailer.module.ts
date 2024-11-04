@@ -5,6 +5,7 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
 
 import { EmailerController } from './emailer.controller';
 import { EmailerService } from './emailer.service';
+import {CalcEmailerService} from "./calc-emailer.service";
 
 @Module({
   imports: [
@@ -33,6 +34,6 @@ import { EmailerService } from './emailer.service';
     }),
   ],
   controllers: [EmailerController],
-  providers: [EmailerService]
+  providers: [EmailerService, CalcEmailerService]
 })
 export class EmailerModule {}
