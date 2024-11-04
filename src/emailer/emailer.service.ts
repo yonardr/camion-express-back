@@ -9,8 +9,7 @@ export class EmailerService {
         console.log(file)
         const res = await this.mailerService
             .sendMail({
-                //to:  ['astron0408@gmail.com', 'astron71@mail.ru'], // list of receivers
-                to:  ['rustem2129@mail.ru'], // list of receivers
+                to:  ['astron0408@gmail.com', 'astron71@mail.ru'], // list of receivers
                 from: 'info@kamion-express.tmweb.ru', // sender address
                 subject: 'Заявка', // Subject line
                 template: 'application-approved',
@@ -37,7 +36,7 @@ export class EmailerService {
     }
     async sendWithFile(dto: GetDataMailDto, fileBuffer: Buffer) {
         return this.mailerService.sendMail({
-            to: ['rustem2129@mail.ru'],
+            to: ['astron0408@gmail.com', 'astron71@mail.ru'],
             from: 'info@kamion-express.tmweb.ru',
             subject: 'Заявка',
             html: `<h1>${dto.name} оставил заявку</h1><h1>Номер телефона: ${dto.tel}</h1><h1>Почта этого пользователя: ${dto.email}</h1>`,
